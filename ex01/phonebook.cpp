@@ -3,7 +3,7 @@
 int main()
 {
 	Contact contact;
-	// contact.PhoneNumber = 66;
+	std::cout << "Hello ......." << std::endl;
 	std::cin >> contact.FirstName;
-	std::cout << contact.PhoneNumber;
+	std::cout << contact.FirstName;
 }
