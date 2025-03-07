@@ -8,6 +8,4 @@ private:
 	std::string NickName;
 	std::string Secret;
 	// int PhoneNumber;
-// public:
-// 	Contact();
 };
