@@ -6,5 +6,8 @@ class PhoneBook {
 // public:
 	// void user_choice(PhoneBook phonebook);
 private:
-	Contact contact[8];
+	Contacts contact[8];
+
+public:
+	void AddContact();
 };

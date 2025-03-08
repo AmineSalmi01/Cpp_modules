@@ -4,7 +4,7 @@ CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 NAME = phonebook
 RM = rm -rf
 
-SRC = main.cpp
+SRC = main.cpp phonebook.cpp
 OBJ = $(SRC:.cpp=.o)
 
 all : $(NAME)
