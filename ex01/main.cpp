@@ -24,7 +24,8 @@ int main()
 	std::string choice;
 
 	std::cout << "choose one of these options: " << std::endl;
-	std::cout << "Add, Search, Exit" << std::endl;
+	std::cout << "Add - Search - Exit" << std::endl;
+	phonebook.initIndex();
 	while (1)
 	{
 		if(!user_choice(choice))
@@ -32,8 +33,18 @@ int main()
 		if (choice == "Exit")
 			break ;
 		if (choice == "Add")
+		{
 			phonebook.AddContact();
+			phonebook.setIndex();
+			std::cout << "index: " << phonebook.getIndex() << std::endl;
+		}
 		if (choice == "Search")
-			std::cout << "Search for Contact\n";
+		{
+			for (int i = 0; i < phonebook.index; i++)
+			{
+				std::cout << "contact --> " << i + 1 << std::endl;
+				phonebook.contact[i].getContact();
+			}
+		}
 	}
 }
