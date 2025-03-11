@@ -40,9 +40,10 @@ int main()
 		}
 		if (choice == "Search")
 		{
-			for (int i = 0; i < phonebook.index; i++)
+			for (int i = 0; i < phonebook.nbContact; i++)
 			{
 				std::cout << "contact --> " << i + 1 << std::endl;
+				std::cout << "=====> " << phonebook.nbContact << std::endl;
 				phonebook.contact[i].getContact();
 			}
 		}

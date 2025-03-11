@@ -8,11 +8,14 @@ int PhoneBook::getIndex()
 void PhoneBook::initIndex()
 {
 	index = 0;
+	nbContact = 0;
 }
 
 void PhoneBook::setIndex()
 {
 	index = (index + 1) % 8;
+	if (nbContact < 8)
+		nbContact++;
 }
 
 void PhoneBook::AddContact()

@@ -8,6 +8,7 @@ private:
 public:
 	Contacts contact[8];
 	int index;
+	int nbContact;
 	void AddContact();
 	void initIndex();
 	void setIndex();
