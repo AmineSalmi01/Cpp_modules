@@ -1,17 +1,18 @@
 #include <iostream>
 #include <string>
-#include "contact.hpp"
+#include <iomanip>
+#include "Contact.hpp"
 
 class PhoneBook {
 private:
-
-public:
-	Contacts contact[8];
+	Contact contact[8];
 	int index;
 	int nbContact;
-	void AddContact();
+
+public:
+	void addContact();
+	void displayContact();
+	void displayDetails(int index);
 	void initIndex();
 	void setIndex();
-	int getIndex();
-	// void SearchContact();
 };

@@ -1,10 +1,13 @@
-#include "phonebook.hpp"
+#include "Phonebook.hpp"
+#include <iostream>
+#include <string>
 
 bool is_valide(std::string choice)
 {
-	if ((choice != "Add" && choice != "Exit" && choice != "Search"))
-		return (false);
-	return (true);
+
+	if (choice == "Add" || choice == "Exit" || choice == "Search")
+		return (true);
+	return (false);
 }
 
 int user_choice(std::string &choice)
@@ -22,10 +25,12 @@ int main()
 {
 	PhoneBook phonebook;
 	std::string choice;
+	int index;
 
 	std::cout << "choose one of these options: " << std::endl;
 	std::cout << "Add - Search - Exit" << std::endl;
 	phonebook.initIndex();
+	index = 0;
 	while (1)
 	{
 		if(!user_choice(choice))
@@ -34,18 +39,15 @@ int main()
 			break ;
 		if (choice == "Add")
 		{
-			phonebook.AddContact();
+			phonebook.addContact();
 			phonebook.setIndex();
-			std::cout << "index: " << phonebook.getIndex() << std::endl;
 		}
 		if (choice == "Search")
 		{
-			for (int i = 0; i < phonebook.nbContact; i++)
-			{
-				std::cout << "contact --> " << i + 1 << std::endl;
-				std::cout << "=====> " << phonebook.nbContact << std::endl;
-				phonebook.contact[i].getContact();
-			}
+			phonebook.displayContact();
+			std::cout << "Enter index : ";
+			std::cin >> index;
+			phonebook.displayDetails(index);
 		}
 	}
 }

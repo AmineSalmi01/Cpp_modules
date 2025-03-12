@@ -1,9 +1,4 @@
-#include "phonebook.hpp"
-
-int PhoneBook::getIndex()
-{
-	return (index);
-}
+#include "Phonebook.hpp"
 
 void PhoneBook::initIndex()
 {
@@ -18,33 +13,44 @@ void PhoneBook::setIndex()
 		nbContact++;
 }
 
-void PhoneBook::AddContact()
+void manipulate_string(const std::string &text)
 {
-	std::string firstName, lastName, nickName, secret, phoneNumber;
+	if (text.length() > 10)
+		std::cout << std::setw(10) << text.substr(0, 9) + ".";
+	else
+		std::cout << std::setw(10) << text;
+}
 
-	std::cout << "Enter First Name: ";
-	std::getline(std::cin, firstName);
-
-	std::cout << "Enter Last Name: ";
-	std::getline(std::cin, lastName);
-
-	std::cout << "Enter Nick Name: ";
-	std::getline(std::cin, nickName);
-
-	std::cout << "Enter Phone Number: ";
-	std::getline(std::cin, phoneNumber);
-
-	std::cout << "Enter Secret: ";
-	std::getline(std::cin, secret);
-
-	if (firstName.empty() || lastName.empty()
-		|| nickName.empty() || secret.empty()
-		|| phoneNumber.empty())
+void PhoneBook::displayContact()
+{
+	std::string text;
+	std::cout << std::setw(10) << "index" << "|" << std::setw(10) << "First Name" << "|"
+		<< std::setw(10) << "Last Name" << "|" << std::setw(10) << "Nickname" << std::endl;
+	for (int i = 0; i < nbContact; i++)
 	{
-		std::cout << "\033[31m" <<  "Contact not added" << "\033[0m" << std::endl;
-		return ;
+		std::cout << std::setw(10) << i << "|";
+		manipulate_string(contact[i].getContact(0));
+		std::cout << "|";
+		manipulate_string(contact[i].getContact(1));
+		std::cout << "|";
+		manipulate_string(contact[i].getContact(2));
+		std::cout << std::endl;
 	}
-	contact[index].setContact(firstName, lastName, nickName, phoneNumber, secret);
-	std::cout << "index ------> "<< index << std::endl;
-	std::cout << "\033[32m" << "Contact Added successfully" << "\033[0m"<< std::endl;
+}
+
+void PhoneBook::displayDetails(int index)
+{
+	std::cout << "First Name: " << contact[index].getContact(0) << std::endl;
+	std::cout << "Last 	Name: " << contact[index].getContact(1) << std::endl;
+	std::cout << "NickName: " << contact[index].getContact(2) << std::endl;
+	std::cout << "Phone Number: " << contact[index].getContact(3) << std::endl;
+	std::cout << "Darkest Secret: " << contact[index].getContact(4) << std::endl;
+}
+
+void PhoneBook::addContact()
+{
+	if (contact[index].setContact())
+		std::cout << "\033[31m" <<  "Contact not added" << "\033[0m" << std::endl;
+	else
+		std::cout << "\033[32m" << "Contact Added successfully" << "\033[0m"<< std::endl;
 }
