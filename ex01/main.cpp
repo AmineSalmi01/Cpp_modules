@@ -21,6 +21,18 @@ int user_choice(std::string &choice)
 	return (1);
 }
 
+int getValideIndex()
+{
+	int index;
+	while (1)
+	{
+		std::cin >> index;
+		// std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+		return (index);
+	}
+	return (index);
+}
+
 int main()
 {
 	PhoneBook phonebook;
@@ -46,7 +58,7 @@ int main()
 		{
 			phonebook.displayContact();
 			std::cout << "Enter index : ";
-			std::cin >> index;
+			index = getValideIndex();
 			phonebook.displayDetails(index);
 		}
 	}
