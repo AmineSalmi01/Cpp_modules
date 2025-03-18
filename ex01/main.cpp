@@ -27,7 +27,7 @@ int getValideIndex()
 	while (1)
 	{
 		std::cin >> index;
-		// std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 		return (index);
 	}
 	return (index);
