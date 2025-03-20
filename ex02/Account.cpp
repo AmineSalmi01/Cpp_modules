@@ -2,8 +2,7 @@
 
 Account::Account(int initial_deposit)
 {
-	(void) initial_deposit;
-	std::cout << "constructor" << std::endl;
+	std::cout << "index:" << ";" << "amount:" << initial_deposit << ";" << "created" << std::endl;
 }
 
 int Account::getNbAccounts()
