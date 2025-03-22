@@ -3,26 +3,40 @@
 int Contact::setContact()
 {
 	std::string value;
-	
-	std::cout << "Enter First Name: ";
-	std::getline(std::cin, value);
-	FirstName = value;
+	do {
+		std::cout << "Enter First Name: ";
+		std::getline(std::cin, value);
+		FirstName = value;
+	}
+	while (FirstName.empty());
 
-	std::cout << "Enter Last Name: ";
-	std::getline(std::cin, value);
-	LastName = value;
+	do {
+		std::cout << "Enter Last Name: ";
+		std::getline(std::cin, value);
+		LastName = value;
+	}
+	while (LastName.empty());
 
-	std::cout << "Enter Nick Name: ";
-	std::getline(std::cin, value);
-	NickName = value;
+	do {
+		NickName = value;
+		std::cout << "Enter Nick Name: ";
+		std::getline(std::cin, value);
+	}
+	while (NickName.empty());
 
-	std::cout << "Enter Phone Number: ";
-	std::getline(std::cin, value);
-	PhoneNumber = value;
+	do {
+		std::cout << "Enter Phone Number: ";
+		std::getline(std::cin, value);
+		PhoneNumber = value;
+	}
+	while (PhoneNumber.empty());
 
-	std::cout << "Enter darkest Secret: ";
-	std::getline(std::cin, value);
-	Secret = value;
+	do {
+		std::cout << "Enter darkest Secret: ";
+		std::getline(std::cin, value);
+		Secret = value;
+	}
+	while (Secret.empty());
 
 	if (FirstName.empty() || LastName.empty()
 		|| NickName.empty() || Secret.empty()

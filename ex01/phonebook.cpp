@@ -41,7 +41,7 @@ void PhoneBook::displayContact()
 void PhoneBook::displayDetails(int index)
 {
 	std::cout << "First Name: " << contact[index].getContact(0) << std::endl;
-	std::cout << "Last 	Name: " << contact[index].getContact(1) << std::endl;
+	std::cout << "Last Name: " << contact[index].getContact(1) << std::endl;
 	std::cout << "NickName: " << contact[index].getContact(2) << std::endl;
 	std::cout << "Phone Number: " << contact[index].getContact(3) << std::endl;
 	std::cout << "Darkest Secret: " << contact[index].getContact(4) << std::endl;

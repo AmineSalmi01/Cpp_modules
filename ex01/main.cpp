@@ -15,7 +15,7 @@ int user_choice(std::string &choice)
 	std::getline(std::cin, choice);
 	if (is_valide(choice) == false)
 	{
-		std::cout << "Bad option... !" << std::endl;
+		std::cout << "\033[31m" << "Bad option... !" << "\033[0m" << std::endl;
 		return (0);
 	}
 	return (1);
@@ -28,9 +28,15 @@ int getValideIndex()
 	{
 		std::cin >> index;
 		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-		return (index);
+		if (index < 0 || index > 9)
+		{
+			std::cout << "error: contact not found" << std::endl;
+			break ;
+		}
+		else
+			return (index);
 	}
-	return (index);
+	return (-1);
 }
 
 int main()
@@ -39,12 +45,13 @@ int main()
 	std::string choice;
 	int index;
 
-	std::cout << "choose one of these options: " << std::endl;
-	std::cout << "Add - Search - Exit" << std::endl;
 	phonebook.initIndex();
 	index = 0;
 	while (1)
 	{
+		std::cout << "--------------------------" << std::endl;
+		std::cout << "Choose one of these options: " << std::endl;
+		std::cout << "Add - Search - Exit" << std::endl;
 		if(!user_choice(choice))
 			continue;
 		if (choice == "Exit")
@@ -59,6 +66,8 @@ int main()
 			phonebook.displayContact();
 			std::cout << "Enter index : ";
 			index = getValideIndex();
+			if (index == -1)
+				continue;
 			phonebook.displayDetails(index);
 		}
 	}
